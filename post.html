@@ -1,0 +1,113 @@
+#include('./partial/header.html',{title: article.title, keywords: article.tags})
+<main id="main" class="main">
+    <div class="main-inner">
+		<div class="content-wrap">
+			<div id="content" class="content">
+				<div id="posts" class="posts-expand">
+					<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+						<div class="post-block">
+							<span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+								<meta itemprop="name" content="Tenir">
+								<meta itemprop="description" content="">
+								<meta itemprop="image" content="/images/avatar.jpg">
+							</span>
+							<span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+								<meta itemprop="name" content="Tenir Blog">
+							</span>
+					<header class="post-header">
+							<h1 class="post-title" itemprop="name headline">${title()}</h1>
+						<div class="post-meta">
+							<span class="post-time">
+								<span class="post-meta-item-icon">
+									<i class="fa fa-calendar-o"></i>
+								</span>
+								<span class="post-meta-item-text">发表于</span>
+									<time title="创建于" itemprop="dateCreated datePublished">
+										${created('yyyy-MM-dd')}
+									</time>
+							</span>
+							#for(category : category_list())
+								<span class="post-category" >
+									<span class="post-meta-divider">|</span>
+									<span class="post-meta-item-icon">
+										<i class="fa fa-folder-o"></i>
+									</span>
+									<span class="post-meta-item-text">分类于</span>
+									<span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+										<a href="/category/${category}" itemprop="url" rel="index">
+									<span itemprop="name">${category}</span>
+										</a>
+									</span>
+								</span>
+								#end
+								<span class="post-comments-count">
+									<span class="post-meta-divider">|</span>
+									<span class="post-meta-item-icon">
+										<i class="fa fa-comment-o">${comments_num('0 条评论', ' %d 条评论')}</i>
+									</span>
+									<a href="${permalink()}#comments" itemprop="discussionUrl">
+											<span class="post-comments-count disqus-comment-count" data-disqus-identifier="${permalink()}" itemprop="commentCount"></span>
+									</a>
+								</span>
+								<span id="${permalink()}" class="leancloud_visitors" data-flag-title="${title()}">
+									<span class="post-meta-divider">|</span>
+									<span class="post-meta-item-icon">
+										<i class="fa fa-eye"></i>
+									</span>
+									<span class="post-meta-item-text">阅读次数 ${views()}次</span>
+									<span class="leancloud-visitors-count"></span>
+								</span>								
+						</div>
+					</header> 
+						<div class="post-body" itemprop="articleBody">
+							${show_content()}
+						</div>
+						<div>
+							<ul class="post-copyright">
+								<li class="post-copyright-author">
+									<strong>本文作者：</strong>
+										${theme_option('author_name') ?! 'Admin'}
+								</li>
+								<li class="post-copyright-link">
+									<strong>本文链接：</strong>
+										<a href="${permalink()}" title="${title()}">${permalink()}</a>
+								</li>
+								<li class="post-copyright-license">
+									<strong>版权声明： </strong>
+									本博客所有文章除特别声明外，均采用 
+										<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+								</li>
+							</ul>
+						</div>
+							<footer class="post-footer">
+							<div class="post-tags">
+							#for(t : tag_list())
+								<a href="/tag/${t}/" rel="tag"># ${t}</a>
+							#end
+							</div>
+						<div class="post-nav">
+						#if(null != article_prev())
+							<div class="post-nav-next post-nav-item">
+								<a href="${permalink(article_prev())}" rel="next" title="${title(article_prev())}">
+								<i class="fa fa-chevron-left"></i> ${title(article_prev())}
+								</a>
+							</div>
+						#end
+						#if(null != article_next())
+							<div class="post-nav-prev post-nav-item">
+							<a href="${permalink(article_next())}" rel="prev" title="${title(article_next())}">${title(article_next())}
+							<i class="fa fa-chevron-right"></i>
+							</a>  
+							</div>
+						#end
+						</div>
+							</footer>
+						</div>
+					</article>
+						<div class="post-spread"></div>
+				</div>
+			</div>
+        </div>
+#include('./partial/sidebar.html')
+  </aside>
+ #include('./partial/footer.html')

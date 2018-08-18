@@ -1,0 +1,129 @@
+#tag layout_block("bodyContent")
+
+<div class="col-sm-12">
+    <h4 class="page-title">主题设置</h4>
+</div>
+
+<form id="option-from" class="form-horizontal" role="form">
+    <div class="col-md-6">
+        <div class="panel panel-color panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">基本设置</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">侧边栏个人头像</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="avatar_url"
+                               value="${options.avatar_url ?! theme_url('/static/images/avatar.jpg')}"
+                               placeholder="请输入侧边栏个人头像"/>
+                    </div>
+                </div>
+				
+                <div class="form-group">
+                    <label class="col-md-3 control-label">文章作者</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="author_name"
+                               value="${options.author_name ?! 'Admin'}" placeholder="您的博客昵称">
+                    </div>
+                </div>
+				
+                <div class="form-group">
+                    <label class="col-md-3 control-label">侧边栏个人描述</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebartext"
+                               value="${options.sidebartext ?! '胡编一通，乱写一气'}" placeholder="您的个人描述">
+                    </div>
+                </div>
+				
+                <div class="clearfix pull-right">
+                    <button type="button" class="btn btn-primary waves-effect waves-light"
+                            onclick="saveThemeOptions('option-from')">
+                        保存设置
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-6">
+        <div class="panel panel-color panel-inverse">
+            <div class="panel-heading">
+                <h3 class="panel-title">个性化设置</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">微博账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_weibo"
+                               value="${options.sidebar_weibo ?! ''}"
+                               placeholder="微博账号，不输入则不显示">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">知乎账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_zhihu"
+                               value="${options.sidebar_zhihu ?! ''}"
+                               placeholder="知乎账号，不输入则不显示">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Github账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_github"
+                               value="${options.sidebar_github ?! ''}" placeholder="Github账号，不输入则不显示">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Twitter账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_twitter"
+                               value="${options.sidebar_twitter ?! ''}" placeholder="Twitter账号，不输入则不显示">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Google账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_google"
+                               value="${options.sidebar_google ?! ''}" placeholder="Google账号，不输入则不显示">
+                    </div>
+                </div>
+				
+				<div class="form-group">
+                    <label class="col-md-3 control-label">Youtube账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_youtube"
+                               value="${options.sidebar_youtube ?! ''}" placeholder="Youtube账号，不输入则不显示">
+                    </div>
+                </div>
+				
+				<div class="form-group">
+                    <label class="col-md-3 control-label">Skype账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_skype"
+                               value="${options.sidebar_skype ?! ''}" placeholder="Skype账号，不输入则不显示">
+                    </div>
+                </div>
+				
+				<div class="form-group">
+                    <label class="col-md-3 control-label">E-Mail账号</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="sidebar_email"
+                               value="${options.sidebar_email ?! ''}" placeholder="E-Mail账号，不输入则不显示">
+                    </div>
+                </div>
+				
+                <div class="clearfix pull-right">
+                    <button type="button" class="btn btn-inverse waves-effect waves-light"
+                            onclick="saveThemeOptions('option-from')">
+                        保存设置
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+#end
+#include ("/comm/ts_base_layout.html")

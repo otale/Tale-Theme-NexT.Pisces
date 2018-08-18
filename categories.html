@@ -1,0 +1,36 @@
+#include('./partial/header.html', {title: keyword})
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+			<div id="posts" class="posts-expand">
+				<div class="post-block page">
+					<header class="post-header">
+						<h1 class="post-title" itemprop="name headline">分类</h1>
+					</header>     
+				<div class="post-body">  
+					<div class="category-all-page">
+						<div id="categorys-number" class="category-all-title">
+							目前共计 1 个分类
+						</div>
+						<div class="category-all">
+							<ul class="category-list">
+								#for(c : categories())
+								<li class="category-list-item">
+									<a class="category-list-link" href="/categories/${c.name}">${c.name}</a><span class="category-list-count">${c.count}</span>
+								</li>
+								#end
+							</ul>
+						</div>
+					</div>       
+				</div>    
+			</div> 
+		</div>
+	</div>
+</div>
+	#include('./partial/sidebar.html')
+#include('./partial/footer.html')
+<script type="text/javascript">
+	var categorys_num=$(".category-list-item").length;
+	document.getElementById("categorys-number").innerHTML = "目前共计" + categorys_num + "个分类";
+</script>

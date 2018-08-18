@@ -1,0 +1,88 @@
+#include('./partial/header.html',{home_page:1})
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+		  <div id="content" class="content">
+			<section id="posts" class="posts-expand">
+			#for(article : articles(5).rows)
+				<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+					<div class="post-block">
+						<link itemprop="mainEntityOfPage" href="http://yoursite.com/post/tale-Theme-Kratos/">
+							<span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+								<meta itemprop="name" content="Tenir">
+								<meta itemprop="description" content="">
+								<meta itemprop="image" content="/images/avatar.jpg">
+							</span>
+							<span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+								<meta itemprop="name" content="Tenir Blog">
+							</span>
+							<header class="post-header">
+								<h1 class="post-title" itemprop="name headline">
+									<a class="post-title-link" href="${permalink()}" itemprop="url">${title()}</a>
+								</h1>
+							<div class="post-meta">
+								<span class="post-time">
+									<span class="post-meta-item-icon">
+									<i class="fa fa-calendar-o"></i>
+									</span>
+								<span class="post-meta-item-text">发表于</span>
+									<time title="创建于" itemprop="dateCreated datePublished">
+										${created('yyyy-MM-dd')}
+									</time>
+								</span>
+								#for(category : category_list())
+								<span class="post-category" >
+									<span class="post-meta-divider">|</span>
+									<span class="post-meta-item-icon">
+										<i class="fa fa-folder-o"></i>
+									</span>
+									<span class="post-meta-item-text">分类于</span>
+									<span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+										<a href="/category/${category}" itemprop="url" rel="index">
+									<span itemprop="name">${category}</span>
+										</a>
+									</span>
+								</span>
+								#end
+								<span class="post-comments-count">
+									<span class="post-meta-divider">|</span>
+									<span class="post-meta-item-icon">
+										<i class="fa fa-comment-o">${comments_num('0 条评论', ' %d 条评论')}</i>
+									</span>
+									<a href="${permalink()}#comments" itemprop="discussionUrl">
+											<span class="post-comments-count disqus-comment-count" data-disqus-identifier="${permalink()}" itemprop="commentCount"></span>
+									</a>
+								</span>
+								<span id="${permalink()}" class="leancloud_visitors" data-flag-title="${title()}">
+									<span class="post-meta-divider">|</span>
+									<span class="post-meta-item-icon">
+										<i class="fa fa-eye"></i>
+									</span>
+									<span class="post-meta-item-text">阅读次数 ${views()}次</span>
+									<span class="leancloud-visitors-count"></span>
+								</span>
+							</div>
+							</header>
+							<div class="post-body" itemprop="articleBody">
+								${excerpt(80)}
+								<div class="post-button text-center">
+									<a class="btn" href="${permalink()}" rel="contents">
+										阅读全文 &raquo;
+									</a>
+								</div>
+							</div>
+							<footer class="post-footer">
+								<div class="post-eof"></div>
+							</footer>
+								</div>
+				</article>
+				#end 
+			</section>
+			#include('./partial/pagination.html', {pageInfo: articles(5)})
+		  </div>
+		</div> 
+#include('./partial/sidebar.html')
+#include('./partial/footer.html')	
+</body>
+</html>

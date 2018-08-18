@@ -1,0 +1,36 @@
+#include('./partial/header.html', {title: type })
+<main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+			<div class="post-block category">
+				<div id="posts" class="posts-collapse">
+					<div class="collection-title">
+						#if(is_empty(articles))
+						<h1>抱歉，还没有相关文章.</h1>
+						#else
+						<h1>${keyword}<small>${type}</small></h1>
+						#end
+					</div>
+					#for(article : articles.rows)
+					<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+						<header class="post-header">
+							<h2 class="post-title">
+								<a class="post-title-link" href="${permalink()}" itemprop="url">
+									<span itemprop="name">${title()}</span>
+								</a>
+							</h2>
+							<div class="post-meta">
+								<time class="post-time" itemprop="dateCreated" content="${created('yyyy年-MM月-dd日')}" >
+									${created('MM-dd')}
+								</time>
+							</div>
+						</header>
+					</article>
+					#end
+				</div>
+			</div>
+          </div>
+		</div>
+	#include('./partial/sidebar.html')
+#include('./partial/footer.html')
