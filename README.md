@@ -1,6 +1,6 @@
 
 ## 主题预览
-[Tale-Theme-NexT.Pisces.png](https://raw.githubusercontent.com/zoujiayu/Tale-Theme-NexT.Pisces/master/screenshot.png)
+![Tale-Theme-NexT.Pisces.png](https://raw.githubusercontent.com/zoujiayu/Tale-Theme-NexT.Pisces/master/screenshot.png)
 
 ## 版权
 主题移植自Hexo博客系统NexT主题中的Pisces样式
